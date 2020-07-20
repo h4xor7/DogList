@@ -1,0 +1,23 @@
+
+l
+<app/src/main/java/com/example/doglistjet/model/DogBreed.java,c\5\c5a3b297a3ba6b473c2090a8505c9e74c3614f31
+r
+Bapp/src/main/java/com/example/doglistjet/model/DogsApiService.java,a\8\a85e2cc65976c585ece69e61073547ecd39440a5
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+k
+;app/src/main/java/com/example/doglistjet/model/DogsApi.java,d\0\d050d136604a63340f5ec0aa00ab02dde99a625f
+o
+?app/src/main/java/com/example/doglistjet/view/ListFragment.java,4\3\43f69757d0d7e6c8a4141bf48462417b9c824d1e
+u
+Eapp/src/main/java/com/example/doglistjet/viewmodel/ListViewModel.java,b\5\b56a89166b4f53ef1e2aed94e5faf08227b94cb2
+r
+Bapp/src/main/java/com/example/doglistjet/view/DogsListAdapter.java,b\5\b5be43fd36ce7117b75a360c930f84c37c3997be
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+o
+?app/src/main/java/com/example/doglistjet/view/MainActivity.java,4\4\44358a467dfdff6cbf132d43e275eca4013a9806
+q
+Aapp/src/main/java/com/example/doglistjet/view/DetailFragment.java,b\5\b5ed8dad307b7e814c335d4009b0e41aac9b7d10
+k
+;app/src/main/java/com/example/doglistjet/model/SmsInfo.java,6\b\6b074b02878465799831e0391f6868ee2076778a

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <data>
+        <variable
+            name="dog"
+            type="com.example.doglistjet.model.DogBreed" />
+
+        <variable
+            name="palette"
+            type="com.example.doglistjet.model.DogPalette" />
+    </data>
+
+
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@{palette.color}"
+        tools:context=".view.DetailFragment">
+
+
+        <ImageView
+            android:id="@+id/dog_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:minHeight="200dp"
+            android:imageUrl="@{dog.imageUrl}"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_dog_icon_round" />
+
+        <TextView
+            android:id="@+id/Dog_name"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dog_img"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp"
+            android:text="@{dog.dogBreed}" />
+
+        <TextView
+            android:id="@+id/dogpurpose"
+            style="@style/Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Dog_name"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp"
+            android:text="@{dog.bredFor}" />
+
+
+        <TextView
+            android:id="@+id/dogtemprament"
+            style="@style/Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dogpurpose"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp"
+            android:text="@{dog.temperament}" />
+
+        <TextView
+            android:id="@+id/dogLifeSpan"
+            style="@style/Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dogtemprament"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp"
+            android:text="@{dog.lifeSpan}" />
+
+
+    </RelativeLayout>
+
+
+</layout>

@@ -1,0 +1,14 @@
+
+m
+java:S1301T"KReplace this "switch" statement by "if" statements to increase readability.(×ö³–úÿÿÿÿ8ˆıó©°.
+J
+java:S1199U"-Extract this nested code block into a method.(Üš¬ô8Š¨õ©°.
+U
+java:S1172c"8Remove this unused method parameter "permissionGranted".(Ë©ª£8¸ÇŸª°.
+C	java:S131T""Add a default case to this switch.(×ö³–úÿÿÿÿ8ˆıó©°.
+N
+java:S16027",Remove useless curly braces around statement(ÌüüÇûÿÿÿÿ8¿·Ø©°.
+I
+java:S16024",Remove useless curly braces around statement(Ñ±›Ô8¥€Ö©°.
+_
+java:S1126V"BReplace this if-then-else statement by a single method invocation.(©§¹8è£‡ª°.
