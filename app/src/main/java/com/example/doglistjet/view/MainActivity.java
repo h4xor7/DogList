@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
         Fragment activeFragment = fragment.getChildFragmentManager().getPrimaryNavigationFragment();
         if (activeFragment instanceof DetailFragment){
-            ((DetailFragment)activeFragment).onPermissionResult();
+            ((DetailFragment)activeFragment).onPermissionResult(permissionGranted);
         }
     }
 }

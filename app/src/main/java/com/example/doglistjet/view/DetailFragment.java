@@ -1,9 +1,12 @@
 package com.example.doglistjet.view;
 
 
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
@@ -24,6 +28,7 @@ import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.doglistjet.R;
 import com.example.doglistjet.databinding.FragmentDetailBinding;
+import com.example.doglistjet.databinding.SendSmsDialogBinding;
 import com.example.doglistjet.model.DogBreed;
 import com.example.doglistjet.model.DogPalette;
 import com.example.doglistjet.model.SmsInfo;
@@ -37,6 +42,8 @@ public class DetailFragment extends Fragment {
     private DetailViewModel detailViewModel;
     private FragmentDetailBinding binding;
     private boolean sendSmsStarted = false;
+
+    private DogBreed currentDog;
 
     public DetailFragment() {
     }
@@ -96,6 +103,8 @@ public class DetailFragment extends Fragment {
                      Util.loadImage(Dog_Img,dogBreed.imageUrl,new CircularProgressDrawable(getContext()));
                  }
 */
+                currentDog = dogBreed;
+
                 binding.setDog(dogBreed);
                 if (dogBreed.imageUrl != null) {
                     setupBackgroundColor(dogBreed.imageUrl);
@@ -143,9 +152,9 @@ public class DetailFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.action_send_sms: {
 
-                if (!sendSmsStarted){
-                    sendSmsStarted =true;
-                    ((MainActivity)getActivity()).checkSmsPermission();
+                if (!sendSmsStarted) {
+                    sendSmsStarted = true;
+                    ((MainActivity) getActivity()).checkSmsPermission();
 
 
                 }
@@ -170,10 +179,35 @@ public class DetailFragment extends Fragment {
 
     public void onPermissionResult(Boolean permissionGranted) {
 
-        if (isAdded() && sendSmsStarted && permissionGranted){
+        if (isAdded() && sendSmsStarted && permissionGranted) {
 
-       //     SmsInfo smsInfo =  new SmsInfo("","",)
+            SmsInfo smsInfo = new SmsInfo("", currentDog.dogBreed + " breed Used for " + currentDog.bredFor, currentDog.imageUrl);
+
+            SendSmsDialogBinding sendSmsDialogBinding = DataBindingUtil.inflate(LayoutInflater.from(getContext()), R.layout.send_sms_dialog, null, false);
+            new AlertDialog.Builder(getContext())
+                    .setView(sendSmsDialogBinding.getRoot())
+                    .setPositiveButton("Send SMS", ((dialog, which) -> {
+                        if (!sendSmsDialogBinding.smsDestination.getText().toString().isEmpty()) {
+
+                            smsInfo.to = sendSmsDialogBinding.smsDestination.getText().toString();
+                            sendSms(smsInfo);
+                        }
+                    }))
+                    .setNegativeButton("Cancel", (dialog, which) -> {
+                    })
+                    .show();
+
+            sendSmsStarted = false;
+            sendSmsDialogBinding.setSmsInfo(smsInfo);
+
         }
 
+    }
+
+    private void sendSms(SmsInfo smsInfo) {
+        Intent intent = new Intent(getContext(), MainActivity.class);
+        PendingIntent pi = PendingIntent.getActivity(getContext(), 0, intent, 0);
+        SmsManager smsManager = SmsManager.getDefault();
+        smsManager.sendTextMessage(smsInfo.to, null, smsInfo.text, pi, null);
     }
 }
