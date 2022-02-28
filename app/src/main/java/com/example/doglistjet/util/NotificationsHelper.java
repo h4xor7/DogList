@@ -44,9 +44,9 @@ public class NotificationsHelper {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(context,0,intent,0);
-        Bitmap icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.original);
+        Bitmap icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.dog_icon);
         Notification notification = new NotificationCompat.Builder(context,CHANNEL_ID)
-                .setSmallIcon(R.drawable.original_second)
+                .setSmallIcon(R.drawable.dog)
                 .setLargeIcon(icon)
                 .setContentTitle("Dogs retrieved")
                 .setContentText("This is a Notification to let you that the dog information has benn retrieved")
