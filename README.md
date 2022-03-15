@@ -7,7 +7,7 @@ This is my first mmvm based  application. This is entirely using jetpack compone
 
 ***You can Install and test latest PupyyIndra app from below 👇***
 
-[![Logo](https://img.shields.io/badge/PupyyIndra-APK-orange)](https://github.com/h4xor7/DogList/releases/download/v1.0.0-alpha/app-debug.apk)
+[![Logo](https://img.shields.io/badge/PupyyIndra-APK-orange)](https://github.com/h4xor7/DogList/releases/download/v1.0.0/app-debug.apk)
 
 
 
