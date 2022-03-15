@@ -1,3 +1,4 @@
+
 # DogList
 This is my first mmvm based  application. This is entirely using jetpack component  based on MVVM Architecture.
 
@@ -28,6 +29,10 @@ This is my first mmvm based  application. This is entirely using jetpack compone
   - [Palette](https://developer.android.com/training/material/palette-colors) - The palette library is a support library that extracts prominent colors from images to help you create visually engaging apps.
   - [Preference](https://developer.android.com/reference/android/preference/Preference) - To save/edit shared prefs  data from xml . 
   - [navigation](https://developer.android.com/training/data-storage/room) - Android Jetpack's Navigation component helps you implement navigation
+
+### Architecture Components
+![Jetpack.png](https://1.bp.blogspot.com/-dwL58chu7wo/WvD1RrHln3I/AAAAAAAAFUg/cRTc0IZga_wMPTWr3CI53IZ5BwtnZMeYACLcBGAs/s800/Screen%2BShot%2B2018-05-05%2Bat%2B11.49.30%2BAMimage1.png)
+
 
 
   
