@@ -28,7 +28,12 @@ This is my first mmvm based  application. This is entirely using jetpack compone
   - [Room](https://developer.android.com/training/data-storage/room) - Room is an android library which is an ORM which wraps android's native SQLite database
   - [Palette](https://developer.android.com/training/material/palette-colors) - The palette library is a support library that extracts prominent colors from images to help you create visually engaging apps.
   - [Preference](https://developer.android.com/reference/android/preference/Preference) - To save/edit shared prefs  data from xml . 
+  - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - LiveData is an observable data holder class . 
+  - [DataBinding](https://developer.android.com/topic/libraries/data-binding) -The Data Binding Library is a support library that allows you to bind UI components in your layouts to data sources in your app using a declarative format rather than programmatically. 
   - [navigation](https://developer.android.com/training/data-storage/room) - Android Jetpack's Navigation component helps you implement navigation
+  - [Notification](https://developer.android.com/guide/topics/ui/notifiers/notifications) - A notification is a message that Android displays outside your app's UI to provide the user with reminders, communication from other people, or other timely information from your app
+  - [Permission](https://developer.android.com/guide/topics/permissions/overview)
+ 
 
 ### Architecture Components
 ![Jetpack.png](https://1.bp.blogspot.com/-dwL58chu7wo/WvD1RrHln3I/AAAAAAAAFUg/cRTc0IZga_wMPTWr3CI53IZ5BwtnZMeYACLcBGAs/s800/Screen%2BShot%2B2018-05-05%2Bat%2B11.49.30%2BAMimage1.png)
