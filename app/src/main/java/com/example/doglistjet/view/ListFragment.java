@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -34,7 +35,7 @@ import butterknife.ButterKnife;
 public class ListFragment extends Fragment {
 
     private ListViewModel listViewModel;
-    private DogsListAdapter dogsListAdapter = new DogsListAdapter(new ArrayList<>());
+    private DogsListAdapter dogsListAdapter = new DogsListAdapter(new ArrayList<>(),getContext());
 
     @BindView(R.id.dog_list)
     RecyclerView doglist;
@@ -72,7 +73,7 @@ public class ListFragment extends Fragment {
         listViewModel = ViewModelProviders.of(this).get(ListViewModel.class);
         listViewModel.refresh();
 
-        doglist.setLayoutManager(new LinearLayoutManager(getContext()));
+        doglist.setLayoutManager(new GridLayoutManager(getContext(),2));
         doglist.setAdapter(dogsListAdapter);
 
         refreshLayout.setOnRefreshListener(() -> {

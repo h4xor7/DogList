@@ -1,18 +1,27 @@
 package com.example.doglistjet.view;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.navigation.Navigation;
+import androidx.palette.graphics.Palette;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.example.doglistjet.R;
-import com.example.doglistjet.databinding.ItemDogBinding;
+import com.example.doglistjet.databinding.ItemDogGridBinding;
 import com.example.doglistjet.model.DogBreed;
+import com.example.doglistjet.model.DogPalette;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +29,12 @@ import java.util.List;
 public class DogsListAdapter extends RecyclerView.Adapter<DogsListAdapter.DogViewHolder> implements DogClickListner {
 
     private ArrayList<DogBreed> dogList;
+    private  Context context ;
 
-    public DogsListAdapter(ArrayList<DogBreed> DogList) {
+    public DogsListAdapter(ArrayList<DogBreed> DogList, Context context) {
 
         this.dogList = DogList;
+        this.context = context;
     }
 
     public void updateDogsList(List<DogBreed> newDogList) {
@@ -37,7 +48,7 @@ public class DogsListAdapter extends RecyclerView.Adapter<DogsListAdapter.DogVie
     @Override
     public DogViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        ItemDogBinding view = DataBindingUtil.inflate(inflater, R.layout.item_dog, parent, false);
+        ItemDogGridBinding view = DataBindingUtil.inflate(inflater, R.layout.item_dog_grid, parent, false);
 
 /*
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_dog, parent, false);
@@ -51,6 +62,12 @@ public class DogsListAdapter extends RecyclerView.Adapter<DogsListAdapter.DogVie
 
         holder.itemView.setDog(dogList.get(position));
         holder.itemView.setListner(this);
+
+
+
+
+
+
 
         /*       ImageView imageView = holder.itemView.findViewById(R.id.imageView);
         TextView name = holder.itemView.findViewById(R.id.name);
@@ -71,7 +88,7 @@ public class DogsListAdapter extends RecyclerView.Adapter<DogsListAdapter.DogVie
     }
     @Override
     public void onDogClicked(View v) {
-    String uuidString =((TextView) v.findViewById(R.id.dogId)).getText().toString();
+    String uuidString =((TextView) v.findViewById(R.id.dogGridId)).getText().toString();
     int uuid = Integer.valueOf(uuidString);
 
         ListFragmentDirections.ActionDetail action = ListFragmentDirections.actionDetail();
@@ -89,9 +106,9 @@ public class DogsListAdapter extends RecyclerView.Adapter<DogsListAdapter.DogVie
 
 
     class DogViewHolder extends RecyclerView.ViewHolder {
-        public ItemDogBinding itemView;
+        public ItemDogGridBinding itemView;
 
-        public DogViewHolder(@NonNull ItemDogBinding itemView) {
+        public DogViewHolder(@NonNull ItemDogGridBinding itemView) {
             super(itemView.getRoot());
             this.itemView = itemView;
         }

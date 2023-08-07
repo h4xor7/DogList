@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="com.example.doglistjet.view.ListFragment"
-        android:label="fragment_list"
+        android:label="Pupedia"
         tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/actionDetail"
@@ -17,9 +17,10 @@
             android:id="@+id/action_listFragment_to_detailFragment"
             app:destination="@+id/detailFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" >
-            <argument android:defaultValue="0"
-                android:name="dogUuid" />
+            app:exitAnim="@anim/nav_default_exit_anim">
+            <argument
+                android:name="dogUuid"
+                android:defaultValue="0" />
         </action>
         <action
             android:id="@+id/actionSettings"
@@ -28,15 +29,15 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.doglistjet.view.DetailFragment"
-        android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" >
+        android:label="Pupedia"
+        tools:layout="@layout/fragment_detail">
         <action
             android:id="@+id/actionList"
             app:destination="@id/listFragment" />
         <argument
             android:name="dogUuid"
-            app:argType="integer"
-            android:defaultValue="0" />
+            android:defaultValue="0"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
